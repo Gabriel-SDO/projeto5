@@ -5,7 +5,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     
-    <ion-title>Conteúdo</ion-title>
+    <ion-title>Destaques da semana</ion-title>
 
     <ion-thumbnail class="ion-margin-end" slot="end" *ngIf="auth.user | async as user">
       <img routerLink="/user/profile" src="{{ user.photoURL }}" alt="{{ user.displayName }}">
@@ -16,8 +16,8 @@
 
 <ion-content class="ion-padding-horizontal">
 
-<h1 class="ion-text-center">Promoções recentes</h1>
 
+<h1 class="ion-text-center">Promoções recentes</h1>
   <div *ngFor="let promocoes of data">
 
   <ion-card class="ion-no-margin ion-margin-vertical">
