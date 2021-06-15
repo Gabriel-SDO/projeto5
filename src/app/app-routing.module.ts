@@ -103,12 +103,22 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: toLogin }
   },
 
+  // Página de cadastro de produto
+  // Só acessível se usuário está logado
+  {
+    path: 'new',
+    loadChildren: () => import('./page/new/new.module').then( m => m.NewPageModule),
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: toLogin }
+  },
+
   // Rota curinga (Erro 404)
   // DEVE SER SEMPRE A ÚLTIMA ROTA
   {
     path: '**',
     loadChildren: () => import('./page/e404/e404.module').then( m => m.E404PageModule)
   }
+ 
+
 ];
 
 @NgModule({

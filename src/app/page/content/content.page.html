@@ -16,6 +16,21 @@
 
 <ion-content class="ion-padding-horizontal">
 
-  <p>À partir daqui, entra o conteúdo específico da aplicação.</p>
+<h1 class="ion-text-center">Promoções recentes</h1>
 
+  <div *ngFor="let promocoes of data">
+
+  <ion-card class="ion-no-margin ion-margin-vertical">
+    <ion-img src="{{ promocoes.cover }}" alt="Capa de {{ promocoes.title }}"></ion-img>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{ promocoes.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="ion-text-center">{{ promocoes.description }}</p>
+      <ion-card-title class="ion-text-center preco">{{ promocoes.preco }}</ion-card-title>
+    </ion-card-content>
+    <ion-button expand="block" shape="round" (click)="open(promocoes.link)">Ver no site</ion-button>
+  </ion-card>
+
+  </div>
 </ion-content>

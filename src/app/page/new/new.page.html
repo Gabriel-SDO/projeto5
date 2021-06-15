@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Cadastrar Game</ion-title>
+    <ion-icon name="game-controller" slot="start" size="large" class="ion-margin-start" color="success"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <p>Preencha os campos para inserir um novo jogo.</p>
+
+  <form [formGroup]="newForm" (ngSubmit)="newSend()">
+
+    <ion-list lines="full" class="ion-no-margin">
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          Título:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="title" id="title" formControlName="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          URL da foto da promoção:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.cover.errors">
+            <small *ngIf="newForm.controls.cover.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.cover.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="cover" id="cover" formControlName="cover"></ion-input>
+      </ion-item>
+
+      <ion-button size="small" expand="block" color="warning" (click)="openGoogle(newForm.controls.title.value)">Pesquisar no Google</ion-button>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          Descrição:
+          <ion-text color="danger" *ngIf="newForm.controls.description.errors">
+            <small *ngIf="newForm.controls.description.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.description.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-textarea name="description" autoGrow="true" id="description" formControlName="description"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          URL da promoção:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.link.errors">
+            <small *ngIf="newForm.controls.link.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.link.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="link" id="link" formControlName="link"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          Preço:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.preco.errors">
+            <small *ngIf="newForm.controls.preco.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.preco.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="preco" id="preco" formControlName="preco"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button type="submit" expand="block" class="ion-margin-vertical" [disabled]="newForm.invalid">Salvar Alterações
+    </ion-button>
+
+  </form>
+
+</ion-content>
