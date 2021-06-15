@@ -102,6 +102,10 @@ const routes: Routes = [
     path: 'policts',
     loadChildren: () => import('./page/policts/policts.module').then( m => m.PolictsPageModule)
   },
+  {
+    path: 'aboutapp',
+    loadChildren: () => import('./page/aboutapp/aboutapp.module').then( m => m.AboutappPageModule)
+  },
 
   // Página de remoção do perfil
   // Só acessível se usuário está logado
@@ -124,7 +128,8 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./page/e404/e404.module').then( m => m.E404PageModule)
-  }
+  },
+  
  
 
 ];
