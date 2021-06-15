@@ -94,6 +94,14 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./page/about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'about1',
+    loadChildren: () => import('./page/about1/about1.module').then( m => m.About1PageModule)
+  },
+  {
+    path: 'policts',
+    loadChildren: () => import('./page/policts/policts.module').then( m => m.PolictsPageModule)
+  },
 
   // Página de remoção do perfil
   // Só acessível se usuário está logado
