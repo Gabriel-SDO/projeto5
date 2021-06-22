@@ -30,6 +30,7 @@
       <ion-card-title class="ion-text-center preco">{{ promocoes.preco }}</ion-card-title>
     </ion-card-content>
     <ion-button expand="block" shape="round" (click)="open(promocoes.link)">Ver no site</ion-button>
+    <ion-button routerLink="/remove/{{promocoes.id}}" expand="block" shape="round" color="danger" *ngIf="user === admin">Apagar</ion-button>
   </ion-card>
 
   </div>

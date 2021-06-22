@@ -23,6 +23,7 @@ export function removeSpaces(control: AbstractControl) {
 
 //
 import { AngularFireAuth } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-new',
@@ -56,7 +57,7 @@ export class NewPage implements OnInit {
   this.auth.onAuthStateChanged(
     (userData) => {
 
-      if(userData.uid !== 'u4vjof96IZVT1q2VnEgGSGJH0Xj2') this.router.navigate(['/home']);
+      if(userData.uid !== environment.admin) this.router.navigate(['/home']);
 
     });
 

@@ -126,6 +126,10 @@ const routes: Routes = [
     path: 'info',
     loadChildren: () => import('./page/info/info.module').then( m => m.InfoPageModule)
   },
+  {
+    path: 'remove/:id',
+    loadChildren: () => import('./page/remove/remove.module').then( m => m.RemovePageModule)
+  },
 
 
   // Rota curinga (Erro 404)
@@ -134,6 +138,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./page/e404/e404.module').then( m => m.E404PageModule)
   }
+
   
  
 
