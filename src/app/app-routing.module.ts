@@ -122,13 +122,18 @@ const routes: Routes = [
     loadChildren: () => import('./page/new/new.module').then( m => m.NewPageModule),
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: toLogin }
   },
+  {
+    path: 'info',
+    loadChildren: () => import('./page/info/info.module').then( m => m.InfoPageModule)
+  },
+
 
   // Rota curinga (Erro 404)
   // DEVE SER SEMPRE A ÚLTIMA ROTA
   {
     path: '**',
     loadChildren: () => import('./page/e404/e404.module').then( m => m.E404PageModule)
-  },
+  }
   
  
 
