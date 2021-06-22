@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-remove',
@@ -13,12 +13,15 @@ export class RemovePage implements OnInit {
 
   constructor(
     public activatedRoute: ActivatedRoute,
-    public http: HttpClient
+    public http: HttpClient,
+    public route: Router
   ) {
 
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.http.delete(this.apiURL + `promocoes/${this.id}`).subscribe(() => {
-      console.log('apagado');
+      this.route.navigate([
+        "/home"
+      ])
     });
 
   }

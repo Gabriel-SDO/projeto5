@@ -1,16 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
+  <ion-toolbar color="medium">
+    
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Cadastrar Game</ion-title>
-    <ion-icon name="game-controller" slot="start" size="large" class="ion-margin-start" color="success"></ion-icon>
+    
+    <ion-title>Cadastrar Promoções</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding-horizontal">
 
-  <p>Preencha os campos para inserir um novo jogo.</p>
+  <p>Preencha os campos para inserir uma nova promoção.</p>
 
   <form [formGroup]="newForm" (ngSubmit)="newSend()">
 

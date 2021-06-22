@@ -13,6 +13,7 @@ export class AppComponent {
     { title: 'Conteúdo', url: '/content', icon: 'newspaper' },
     { title: 'Faça contato', url: '/contacts', icon: 'chatbubbles' },
     { title: 'Sobre', url: '/about', icon: 'information-circle' },
+    { title: 'Nova promoção', url: '/new', icon: 'add-circle' }
   ];
 
   constructor(
