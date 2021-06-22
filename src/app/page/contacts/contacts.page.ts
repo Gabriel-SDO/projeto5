@@ -12,8 +12,6 @@ import { AlertController } from '@ionic/angular';
 
 import { HttpClient } from '@angular/common/http';
 
-// Validação (filtro) personalizado
-// Não permite compos somente com espaços
 export function removeSpaces(control: AbstractControl) {
   if (control && control.value && !control.value.replace(/\s/g, '').length) {
     control.setValue('');
@@ -30,14 +28,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ContactsPage implements OnInit {
 
-  // Atributos
   public contactForm: FormGroup;        // Cria o formulário
   public pipe = new DatePipe('en_US');  // Formatador de datas
   public apiURL = 'http://localhost:8100/'; // URL da API
 
   constructor(
 
-    // Injeta dependências
     public form: FormBuilder,
     public alert: AlertController,
     public http: HttpClient,
@@ -46,10 +42,8 @@ export class ContactsPage implements OnInit {
 
   ngOnInit() {
 
-    // Cria os campos do formulário
     this.contactFormCreate();
 
-    // Preenche nome e email se usuário está logado
     if (this.contactForm) {
       this.auth.onAuthStateChanged(
         (userData) => {
@@ -62,18 +56,14 @@ export class ContactsPage implements OnInit {
     }
   }
 
-  // Cria os campos do formulário
   contactFormCreate() {
 
     this.contactForm = this.form.group({
 
-      // Data de envio (date)
       date: [''],
 
-      // Status do contato (status)
       status: ['Enviado'],
 
-      // Nome do remetente (name)
       name: [                       // Nome do campo
         '',                         // Valor inicial do campo
         Validators.compose([        // Valida o campo
@@ -83,7 +73,6 @@ export class ContactsPage implements OnInit {
         ])
       ],
 
-      // E-mail do remetente (email)
       email: [                      // Nome do campo
         '',                         // Valor inicial do campo
         Validators.compose([        // Valida o campo
@@ -92,8 +81,6 @@ export class ContactsPage implements OnInit {
           removeSpaces              // Remove espaços duplicados
         ])
       ],
-
-      // Assunto do contato (subject)
       subject: [                    // Nome do campo
         '',                         // Valor inicial do campo
         Validators.compose([        // Valida o campo
@@ -103,7 +90,6 @@ export class ContactsPage implements OnInit {
         ])
       ],
 
-      // Mensagem do contato (message)
       message: [                    // Nome do campo
         '',                         // Valor inicial do campo
         Validators.compose([        // Valida o campo
@@ -115,20 +101,16 @@ export class ContactsPage implements OnInit {
     });
   };
 
-  // Processa e envia o formulário para o databse
   contactSend() {
 
-    // Gera e formata a data de envio
     this.contactForm.controls.date.setValue(
       this.pipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss')
     );
 
-    // Salvar dados na API REST...
     this.http.post(this.apiURL + 'contacts', this.contactForm.value).subscribe(
       (res: any) => {
         if (res) {
 
-          // EXibe feedback
           this.feedback();
 
         }
@@ -137,14 +119,11 @@ export class ContactsPage implements OnInit {
       }
     );
 
-    // Termina sem fazer mais nada
     return false;
   }
 
-  // Popup de feedback
   async feedback() {
 
-    // Obtém somente primeiro nome do remetente
     var name = this.contactForm.controls.name.value.split(' ');
 
     const alert = await this.alert.create({
@@ -152,15 +131,12 @@ export class ContactsPage implements OnInit {
       message: 'Seu contato foi enviado com sucesso para a equipe do aplicativo.',
       buttons: [
 
-        // Botão [Ok]
         {
           text: 'Ok',
           handler: () => {
 
-            // Reset do formulário
             this.contactForm.reset({
 
-              // Mantém o nome e e-mail do rementente
               name: this.contactForm.controls.name.value,
               email: this.contactForm.controls.email.value,
               status: 'Enviado'

@@ -20,6 +20,7 @@ ion-menu.md ion-note {
 ion-menu.md ion-list-header,
 ion-menu.md ion-note {
   padding-left: 10px;
+
 }
 
 ion-menu.md ion-list#inbox-list {
@@ -31,6 +32,8 @@ ion-menu.md ion-list#inbox-list ion-list-header {
   font-weight: 600;
 
   min-height: 20px;
+  color:rgb(129, 8, 8)
+
 }
 
 ion-menu.md ion-list#labels-list ion-list-header {

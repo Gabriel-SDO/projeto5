@@ -96,15 +96,15 @@ const routes: Routes = [
   },
   {
     path: 'about1',
-    loadChildren: () => import('./page/about1/about1.module').then( m => m.About1PageModule)
+    loadChildren: () => import('./page/about/about1/about1.module').then( m => m.About1PageModule)
   },
   {
     path: 'policts',
-    loadChildren: () => import('./page/policts/policts.module').then( m => m.PolictsPageModule)
+    loadChildren: () => import('./page/about/policts/policts.module').then( m => m.PolictsPageModule)
   },
   {
     path: 'aboutapp',
-    loadChildren: () => import('./page/aboutapp/aboutapp.module').then( m => m.AboutappPageModule)
+    loadChildren: () => import('./page/about/aboutapp/aboutapp.module').then( m => m.AboutappPageModule)
   },
 
   // Página de remoção do perfil
@@ -124,7 +124,7 @@ const routes: Routes = [
   },
   {
     path: 'info',
-    loadChildren: () => import('./page/info/info.module').then( m => m.InfoPageModule)
+    loadChildren: () => import('./page/about/info/info.module').then( m => m.InfoPageModule)
   },
 
 
