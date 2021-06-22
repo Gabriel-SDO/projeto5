@@ -14,9 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     ContactsPageRoutingModule,
-
-    // Declara driver do "Reactive Forms"
-    ReactiveFormsModule
+  ReactiveFormsModule
   ],
   declarations: [ContactsPage]
 })
