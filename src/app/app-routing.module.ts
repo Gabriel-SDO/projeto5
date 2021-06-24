@@ -76,7 +76,7 @@ const routes: Routes = [
   // Página principal da aplicação
   // Só acessível se usuário está logado
   {
-    path: 'content',
+    path: 'content/:cat',
     loadChildren: () => import('./page/content/content.module').then( m => m.ContentPageModule),
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: toLogin }
   },
